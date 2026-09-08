@@ -1,0 +1,36 @@
+[project]
+name = "fast-api-feature-oriented-structure-eaxmple"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "reboot0501", email = "add0602@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "bcrypt<4.1",
+    "cryptography>=45.0.7",
+    "email-validator>=2.3.0",
+    "fastapi>=0.116.1",
+    "oracledb>=3.4.0",
+    "passlib[bcrypt]>=1.7.4",
+    "pydantic>=2.10.0",
+    "python-dotenv>=1.1.1",
+    "sqlalchemy>=2.0.43",
+    "svcs>=26.2.0",
+    "uvicorn>=0.35.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+# 프로젝트 루트를 sys.path에 추가 — 이게 없으면 tests/*.py가 `app`/`domain`/`shared` 등을
+# 최상위 모듈로 import하지 못해 "uv run pytest"만으로는 테스트 수집(collection) 자체가 실패한다.
+pythonpath = ["."]
+
+[dependency-groups]
+dev = [
+    "httpx2>=2.12.0",
+    "pytest>=8.3.2",
+]
